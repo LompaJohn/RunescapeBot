@@ -1,0 +1,32 @@
+.git/
+node_modules/
+server/engine/node_modules/
+server/gateway/node_modules/
+sdk/node_modules/
+
+# Dirs not needed for production
+benchmark/
+bots/
+jobs/
+learnings/
+mcp/
+scripts/
+
+# Dev/test files inside server
+server/scripts/
+server/bot_arcs/
+server/bots/
+server/runs/
+server/docs/
+**/*.log
+**/.DS_Store
+
+# Large files not needed for production
+server/engine/screenshots/
+
+# Config files at parent level
+*.md
+*.toml
+*.json
+*.lock
+analogy/

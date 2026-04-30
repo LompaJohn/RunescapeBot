@@ -1,0 +1,22 @@
+node_modules/
+__pycache__/
+.DS_Store
+runs/
+gateway/agent-state/
+screenshots/
+public-bot/
+public-client/
+
+server.json
+.env
+
+# Nix
+result
+.direnv/
+
+# Daemon type checker temp file
+sdk/__exec_check.ts
+
+# SDK is copied into Docker via Dockerfile; don't duplicate it under server/
+server/sdk/
+jobs/

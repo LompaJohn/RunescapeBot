@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/tmi.js": "^1.8.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@ai-sdk/groq": "^3.0.36",
+    "@inquirer/prompts": "^7.5.3",
+    "ai": "^6.0.170",
+    "open": "^11.0.0",
+    "tmi.js": "^1.8.5",
+    "ts-morph": "^27.0.2",
+    "zod": "^4.4.1"
+  }
+}
