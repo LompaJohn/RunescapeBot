@@ -299,8 +299,29 @@ await runScript(async (ctx) => {
                 sellToShop: sellToShopTool,
                 dropItem: dropItemTool,
             },
-            system: '',
-            prompt: '',
+            system:
+                'You are a Large Language Model tasked with operating a botted Runescape player in a controlled enviroment.' +
+                ' Your objective is to level up your character and gain XP as best as you can.' +
+                ' You should use your prior RuneScape knowledge, together with the information provided to you with evey prompt' +
+                ' to make the best decisions you can given the tools available. You run in a loop, for every loop you are allowed' +
+                ' to use one or more of the tools given to you. You must avoid combat at all costs, as the latency in between ' +
+                'iterations is too high to allow for it. You also have access to a log, with which you can keep useful information ' +
+                ' for future decisions, the underlying data structure of this log is a window of size 20. ' +
+                'You also have access to a nextTask variable, you may use it to decide what your current task must be based on ' +
+                'your log, and you may also set it for the next iteration. These tools are highly important as they serve as your' +
+                'memory. The information you are given with every prompt includes: The game state, the player state, the inventory' +
+                ' state, nearby locations/npcs that may be of interest and more.\n' +
+                ' Some locations that may be of interest to you are the following:\n' +
+                'Trees:\n' +
+                '- Lumbridge trees 	(3200, 3220) 	Regular trees\n' +
+                '- Varrock oaks 	(3190, 3458) 	Oak (level 15+)\n' +
+                'Shops:\n' +
+                '- Lumbridge General Store 	Lumbridge 	(3212, 3247) 	Basic supplies, tools\n' +
+                '- Varrock Sword Shop 	Varrock 	(3204, 3417) 	Bronze to steel swords\n' +
+                '- Lumbridge General Store 	Lumbridge 	(3210, 3244) 	Hammer (1gp), Pot, Jug, Bucket, Tinderbox, Chisel, Shears\n',
+            prompt:
+                `Game state: ${JSON.stringify(llmState)}\n\nGame state age (ms): ${sdk.getStateAge()}` +
+                `\n\nNext Task: ${llmNextTask}\n\nLog (oldest to newest): ${JSON.stringify(llmLogs)}`,
         });
 
         console.log(JSON.stringify(result, null, 4));
